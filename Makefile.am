@@ -27,6 +27,7 @@ include/pbc_fieldquadratic.h \
 include/pbc_f_param.h \
 include/pbc_g_param.h \
 include/pbc_i_param.h \
+include/pbc_sm9_param.h \
 include/pbc_fp.h \
 include/pbc_ternary_extension_field.h \
 include/pbc.h \
@@ -56,7 +57,8 @@ libpbc_la_SOURCES = arith/field.c arith/z.c \
 	ecc/singular.c \
 	ecc/eta_T_3.c \
 	ecc/param.c ecc/a_param.c ecc/d_param.c ecc/e_param.c \
-	ecc/f_param.c ecc/g_param.c
+	ecc/f_param.c ecc/g_param.c \
+    ecc/sm9_param.c
 libpbc_la_LDFLAGS = -lgmp -lm -version-info $(SO_VERSION) $(PBC_LDFLAGS) $(LIBPBC_LDFLAGS)
 
 # LDADD is fallback of program_LDADD

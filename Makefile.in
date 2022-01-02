@@ -101,7 +101,8 @@ am_libpbc_la_OBJECTS = libpbc_la-field.lo libpbc_la-z.lo \
 	libpbc_la-hilbert.lo libpbc_la-curve.lo libpbc_la-pairing.lo \
 	libpbc_la-singular.lo libpbc_la-eta_T_3.lo libpbc_la-param.lo \
 	libpbc_la-a_param.lo libpbc_la-d_param.lo libpbc_la-e_param.lo \
-	libpbc_la-f_param.lo libpbc_la-g_param.lo
+	libpbc_la-f_param.lo libpbc_la-g_param.lo \
+    libpbc_la-sm9_param.lo
 libpbc_la_OBJECTS = $(am_libpbc_la_OBJECTS)
 libpbc_la_LINK = $(LIBTOOL) --tag=CC $(AM_LIBTOOLFLAGS) \
 	$(LIBTOOLFLAGS) --mode=link $(CCLD) $(AM_CFLAGS) $(CFLAGS) \
@@ -156,7 +157,8 @@ am__objects_1 = guru_poly_test-field.$(OBJEXT) \
 	guru_poly_test-d_param.$(OBJEXT) \
 	guru_poly_test-e_param.$(OBJEXT) \
 	guru_poly_test-f_param.$(OBJEXT) \
-	guru_poly_test-g_param.$(OBJEXT)
+	guru_poly_test-g_param.$(OBJEXT) \
+    guru_poly_test-sm9_param.$(OBJEXT)
 am_guru_poly_test_OBJECTS = $(am__objects_1) \
 	guru_poly_test-poly_test.$(OBJEXT)
 guru_poly_test_OBJECTS = $(am_guru_poly_test_OBJECTS)
@@ -410,6 +412,7 @@ include/pbc_fieldquadratic.h \
 include/pbc_f_param.h \
 include/pbc_g_param.h \
 include/pbc_i_param.h \
+include/pbc_sm9_param.h \
 include/pbc_fp.h \
 include/pbc_ternary_extension_field.h \
 include/pbc.h \
@@ -439,7 +442,8 @@ libpbc_la_SOURCES = arith/field.c arith/z.c \
 	ecc/singular.c \
 	ecc/eta_T_3.c \
 	ecc/param.c ecc/a_param.c ecc/d_param.c ecc/e_param.c \
-	ecc/f_param.c ecc/g_param.c
+	ecc/f_param.c ecc/g_param.c \
+    ecc/sm9_param.c
 
 libpbc_la_LDFLAGS = -lgmp -lm -version-info $(SO_VERSION) $(PBC_LDFLAGS) $(LIBPBC_LDFLAGS)
 
@@ -623,6 +627,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-eta_T_3.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-extend_printf.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-f_param.Po@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-sm9_param.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-fasterfp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-fastfp.Po@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/guru_poly_test-field.Po@am__quote@
@@ -660,6 +665,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-eta_T_3.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-extend_printf.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-f_param.Plo@am__quote@
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-sm9_param.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-fasterfp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-fastfp.Plo@am__quote@
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/libpbc_la-field.Plo@am__quote@
@@ -942,6 +948,13 @@ libpbc_la-g_param.lo: ecc/g_param.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ecc/g_param.c' object='libpbc_la-g_param.lo' libtool=yes @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libpbc_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libpbc_la-g_param.lo `test -f 'ecc/g_param.c' || echo '$(srcdir)/'`ecc/g_param.c
+
+libpbc_la-sm9_param.lo: ecc/sm9_param.c
+@am__fastdepCC_TRUE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libpbc_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT libpbc_la-sm9_param.lo -MD -MP -MF $(DEPDIR)/libpbc_la-sm9_param.Tpo -c -o libpbc_la-sm9_param.lo `test -f 'ecc/sm9_param.c' || echo '$(srcdir)/'`ecc/sm9_param.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/libpbc_la-sm9_param.Tpo $(DEPDIR)/libpbc_la-sm9_param.Plo
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ecc/sm9_param.c' object='libpbc_la-sm9_param.lo' libtool=yes @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(LIBTOOL)  --tag=CC $(AM_LIBTOOLFLAGS) $(LIBTOOLFLAGS) --mode=compile $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(libpbc_la_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o libpbc_la-sm9_param.lo `test -f 'ecc/sm9_param.c' || echo '$(srcdir)/'`ecc/sm9_param.c
 
 benchmark_benchmark-benchmark.o: benchmark/benchmark.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(benchmark_benchmark_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT benchmark_benchmark-benchmark.o -MD -MP -MF $(DEPDIR)/benchmark_benchmark-benchmark.Tpo -c -o benchmark_benchmark-benchmark.o `test -f 'benchmark/benchmark.c' || echo '$(srcdir)/'`benchmark/benchmark.c
@@ -1460,6 +1473,20 @@ guru_poly_test-f_param.obj: ecc/f_param.c
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ecc/f_param.c' object='guru_poly_test-f_param.obj' libtool=no @AMDEPBACKSLASH@
 @AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
 @am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o guru_poly_test-f_param.obj `if test -f 'ecc/f_param.c'; then $(CYGPATH_W) 'ecc/f_param.c'; else $(CYGPATH_W) '$(srcdir)/ecc/f_param.c'; fi`
+
+guru_poly_test-sm9_param.o: ecc/sm9_param.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT guru_poly_test-sm9_param.o -MD -MP -MF $(DEPDIR)/guru_poly_test-sm9_param.Tpo -c -o guru_poly_test-sm9_param.o `test -f 'ecc/sm9_param.c' || echo '$(srcdir)/'`ecc/sm9_param.c
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/guru_poly_test-sm9_param.Tpo $(DEPDIR)/guru_poly_test-sm9_param.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ecc/sm9_param.c' object='guru_poly_test-sm9_param.o' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o guru_poly_test-sm9_param.o `test -f 'ecc/sm9_param.c' || echo '$(srcdir)/'`ecc/sm9_param.c
+
+guru_poly_test-sm9_param.obj: ecc/sm9_param.c
+@am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT guru_poly_test-sm9_param.obj -MD -MP -MF $(DEPDIR)/guru_poly_test-sm9_param.Tpo -c -o guru_poly_test-sm9_param.obj `if test -f 'ecc/sm9_param.c'; then $(CYGPATH_W) 'ecc/sm9_param.c'; else $(CYGPATH_W) '$(srcdir)/ecc/sm9_param.c'; fi`
+@am__fastdepCC_TRUE@	$(am__mv) $(DEPDIR)/guru_poly_test-sm9_param.Tpo $(DEPDIR)/guru_poly_test-sm9_param.Po
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	source='ecc/sm9_param.c' object='guru_poly_test-sm9_param.obj' libtool=no @AMDEPBACKSLASH@
+@AMDEP_TRUE@@am__fastdepCC_FALSE@	DEPDIR=$(DEPDIR) $(CCDEPMODE) $(depcomp) @AMDEPBACKSLASH@
+@am__fastdepCC_FALSE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -c -o guru_poly_test-sm9_param.obj `if test -f 'ecc/sm9_param.c'; then $(CYGPATH_W) 'ecc/sm9_param.c'; else $(CYGPATH_W) '$(srcdir)/ecc/sm9_param.c'; fi`
 
 guru_poly_test-g_param.o: ecc/g_param.c
 @am__fastdepCC_TRUE@	$(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(guru_poly_test_CPPFLAGS) $(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS) -MT guru_poly_test-g_param.o -MD -MP -MF $(DEPDIR)/guru_poly_test-g_param.Tpo -c -o guru_poly_test-g_param.o `test -f 'ecc/g_param.c' || echo '$(srcdir)/'`ecc/g_param.c

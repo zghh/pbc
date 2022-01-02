@@ -342,6 +342,30 @@ Introduced by Barreto et al, "Efficient Pairing Computation on Supersingular
 Abelian Varieties", Designs, Codes and Cryptography, vol. 42, no. 3, pp. 239-271,
 Mar. 2007.
 
+=== Type SM9 internals ===
+
+Using carefully crafted polynomials, k = 12 pairings can be constructed.
+Only 160 bits are needed to represent elements of one group, and 320 bits
+for the other.
+
+Also, embedding degree k = 12 allows higher security short signatures.
+(k = 6 curves cannot
+be used to scale security from 160-bits to say 256-bits because finite
+field attacks are subexponential.)
+
++sm9_param+ struct fields:
+
+  q:
+    The curve is defined over Fq
+  r:
+    The order of the curve.
+  b:
+    E: y^2= x^3 + b
+  beta:
+    A quadratic nonresidue in Fq: used in quadratic extension.
+  alpha0, alpha1:
+    x^6 + alpha0 + alpha1 sqrt(beta) is irreducible: used in sextic extension.
+
 === Testing functions ===
 
 For testing, debugging, demonstrations and benchmarks.
